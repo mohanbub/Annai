@@ -3,98 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foodie</title>
+  <title>Add Items with Price</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      margin: 0;
       background-color: #f9f9f9;
-      color: #000;
-    }
-    header {
-      background-color: #2196f3; /* Blue */
-      color: white;
-      padding: 16px;
-      text-align: center;
-      font-weight: bold;
-    }
-    .search-box {
-      padding: 12px;
-    }
-    .search-box input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-    }
-    .restaurant-card {
-      background: white;
-      margin: 12px;
-      padding: 12px;
-      border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .restaurant-info {
-      flex-grow: 1;
-      margin-left: 12px;
-    }
-    .restaurant-info h3 {
       margin: 0;
-      font-weight: bold;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
       color: #2196f3;
     }
-    .restaurant-info p {
-      margin: 4px 0 0;
-      color: #555;
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .order-btn {
-      background-color: #e91e63; /* Pink */
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #e91e63;
       color: white;
       border: none;
-      padding: 8px 16px;
       border-radius: 8px;
       cursor: pointer;
+      font-weight: bold;
     }
-    .order-btn:hover {
+    button:hover {
       background-color: #d81b60;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+    li {
+      background: #fff;
+      margin: 8px 0;
+      padding: 12px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .price {
+      color: #2196f3;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <header>Discover Restaurants</header>
-
-  <div class="search-box">
-    <input type="text" placeholder="Search for food or restaurants">
+  <h1>Item List</h1>
+  <div class="form-container">
+    <input type="text" id="itemName" placeholder="Enter item name">
+    <input type="number" id="itemPrice" placeholder="Enter price">
+    <button onclick="addItem()">Add Item</button>
+    <ul id="itemList"></ul>
   </div>
 
-  <div class="restaurant-card">
-    <span>🍴</span>
-    <div class="restaurant-info">
-      <h3>Spicy Hub</h3>
-      <p>⭐ 4.5 • 30 min delivery</p>
-    </div>
-    <button class="order-btn">Order</button>
-  </div>
+  <script>
+    function addItem() {
+      const name = document.getElementById('itemName').value;
+      const price = document.getElementById('itemPrice').value;
 
-  <div class="restaurant-card">
-    <span>🍴</span>
-    <div class="restaurant-info">
-      <h3>Pizza Palace</h3>
-      <p>⭐ 4.2 • 25 min delivery</p>
-    </div>
-    <button class="order-btn">Order</button>
-  </div>
+      if (name && price) {
+        const li = document.createElement('li');
+        li.innerHTML = `<span>${name}</span> <span class="price">₹${price}</span>`;
+        document.getElementById('itemList').appendChild(li);
 
-  <div class="restaurant-card">
-    <span>🍴</span>
-    <div class="restaurant-info">
-      <h3>Veggie Delight</h3>
-      <p>⭐ 4.8 • 20 min delivery</p>
-    </div>
-    <button class="order-btn">Order</button>
-  </div>
+        // Clear inputs
+        document.getElementById('itemName').value = '';
+        document.getElementById('itemPrice').value = '';
+      } else {
+        alert("Please enter both item name and price!");
+      }
+    }
+  </script>
 </body>
 </html>
