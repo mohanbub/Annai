@@ -1,99 +1,100 @@
-import 'package:flutter/material.dart';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodie</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #000;
+    }
+    header {
+      background-color: #2196f3; /* Blue */
+      color: white;
+      padding: 16px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .search-box {
+      padding: 12px;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+    }
+    .restaurant-card {
+      background: white;
+      margin: 12px;
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .restaurant-info {
+      flex-grow: 1;
+      margin-left: 12px;
+    }
+    .restaurant-info h3 {
+      margin: 0;
+      font-weight: bold;
+      color: #2196f3;
+    }
+    .restaurant-info p {
+      margin: 4px 0 0;
+      color: #555;
+    }
+    .order-btn {
+      background-color: #e91e63; /* Pink */
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .order-btn:hover {
+      background-color: #d81b60;
+    }
+  </style>
+</head>
+<body>
+  <header>Discover Restaurants</header>
 
-void main() {
-  runApp(AnnaiApp());
-}
+  <div class="search-box">
+    <input type="text" placeholder="Search for food or restaurants">
+  </div>
 
-class AnnaiApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Foodie',
-      theme: ThemeData(
-        primaryColor: Colors.blue,
-        accentColor: Colors.pink,
-        fontFamily: 'Poppins',
-        textTheme: TextTheme(
-          headline6: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
-          bodyText2: TextStyle(color: Colors.black87),
-        ),
-        buttonTheme: ButtonThemeData(
-          buttonColor: Colors.blue,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
-      ),
-      home: HomeScreen(),
-    );
-  }
-}
+  <div class="restaurant-card">
+    <span>🍴</span>
+    <div class="restaurant-info">
+      <h3>Spicy Hub</h3>
+      <p>⭐ 4.5 • 30 min delivery</p>
+    </div>
+    <button class="order-btn">Order</button>
+  </div>
 
-class HomeScreen extends StatelessWidget {
-  final List<Map<String, String>> restaurants = [
-    {"name": "Spicy Hub", "rating": "4.5", "time": "30 min"},
-    {"name": "Pizza Palace", "rating": "4.2", "time": "25 min"},
-    {"name": "Veggie Delight", "rating": "4.8", "time": "20 min"},
-  ];
+  <div class="restaurant-card">
+    <span>🍴</span>
+    <div class="restaurant-info">
+      <h3>Pizza Palace</h3>
+      <p>⭐ 4.2 • 25 min delivery</p>
+    </div>
+    <button class="order-btn">Order</button>
+  </div>
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Discover Restaurants"),
-        backgroundColor: Colors.blue,
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: "Search for food or restaurants",
-                prefixIcon: Icon(Icons.search, color: Colors.pink),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: restaurants.length,
-              itemBuilder: (context, index) {
-                final restaurant = restaurants[index];
-                return Card(
-                  margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: ListTile(
-                    leading: Icon(Icons.restaurant, color: Colors.pink),
-                    title: Text(
-                      restaurant["name"]!,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: Text(
-                        "⭐ ${restaurant["rating"]} • ${restaurant["time"]} delivery"),
-                    trailing: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.pink,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                      child: Text("Order"),
-                      onPressed: () {
-                        // Navigate to restaurant details
-                      },
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+  <div class="restaurant-card">
+    <span>🍴</span>
+    <div class="restaurant-info">
+      <h3>Veggie Delight</h3>
+      <p>⭐ 4.8 • 20 min delivery</p>
+    </div>
+    <button class="order-btn">Order</button>
+  </div>
+</body>
+</html>
