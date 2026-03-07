@@ -18,7 +18,7 @@
     .form-container {
       max-width: 400px;
       margin: 0 auto;
-      background: white;
+      background: blue;
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -34,7 +34,7 @@
       width: 100%;
       padding: 10px;
       background-color: #e91e63;
-      color: white;
+      color: pink;
       border: none;
       border-radius: 8px;
       cursor: pointer;
